@@ -119,19 +119,12 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, language, isDarkMode 
   };
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.2 }}
-      className={`rounded-2xl shadow-lg border overflow-hidden hover:shadow-xl transition-shadow duration-200 group cursor-pointer backdrop-blur-sm ${
+    <div
+      className={`rounded-2xl shadow-lg border overflow-hidden hover:shadow-xl transition-all duration-200 group cursor-pointer backdrop-blur-sm ${
         isDarkMode 
           ? 'bg-gray-800/90 border-gray-700 hover:border-brand-red/40' 
           : 'bg-white border-gray-100 hover:border-brand-red/20'
-      }`}
-      whileHover={{ y: -2, scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
+      } hover:transform hover:-translate-y-1 hover:scale-[1.01] active:scale-[0.99]`}
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
@@ -211,7 +204,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, language, isDarkMode 
           <div className="w-8 h-0.5 bg-brand-red rounded-full group-hover:w-16 transition-all duration-300" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -17,8 +17,8 @@ function App() {
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId);
-    // Scroll to top when category changes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top when category changes - instant for better performance
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const toggleTheme = () => {
@@ -53,11 +53,7 @@ function App() {
       {/* Menu Items */}
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            key={`${activeCategory}-header`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+          <div
             className={`text-center mb-12 backdrop-blur-sm rounded-3xl py-8 px-6 shadow-lg border transition-all duration-300 ${
               isDarkMode
                 ? 'bg-black/40 border-white/10 text-white'
@@ -74,37 +70,18 @@ function App() {
                 : `Zbuloni ${currentCategory?.items.length} opsionet tona të shijshme`
               }
             </p>
-          </motion.div>
+          </div>
           
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {currentCategory?.items.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    delay: index * 0.1, 
-                    duration: 0.5,
-                    ease: "easeOut"
-                  }}
-                >
-                  <MenuItemCard
-                    item={item}
-                    language={language}
-                    isDarkMode={isDarkMode}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentCategory?.items.map((item) => (
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                language={language}
+                isDarkMode={isDarkMode}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
