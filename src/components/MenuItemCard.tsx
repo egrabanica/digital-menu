@@ -11,31 +11,31 @@ interface MenuItemCardProps {
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, language, isDarkMode }) => {
   // Function to get default image based on item type
   const getDefaultImage = (itemId: string) => {
-    // Map specific items to appropriate Pexels images
+    // Map specific items to appropriate optimized images
     const imageMap: { [key: string]: string } = {
-      // Refreshing Drinks
-      'ujë-natyral': 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'ujë-mineral': 'https://images.pexels.com/photos/1458671/pexels-photo-1458671.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Laçin': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'coca-cola': 'https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'fanta': 'https://images.pexels.com/photos/2775860/pexels-photo-2775860.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'schweppes': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'ice Tea': 'https://images.pexels.com/photos/1556679/pexels-photo-1556679.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'redbull': 'https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Lengje': 'https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Lemonadë': 'https://images.pexels.com/photos/1233319/pexels-photo-1233319.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Boronicë': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400',
+      // Refreshing Drinks - WebP format for better compression
+      'ujë-natyral': 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'ujë-mineral': 'https://images.pexels.com/photos/1458671/pexels-photo-1458671.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Laçin': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'coca-cola': 'https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'fanta': 'https://images.pexels.com/photos/2775860/pexels-photo-2775860.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'schweppes': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'ice Tea': 'https://images.pexels.com/photos/1556679/pexels-photo-1556679.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'redbull': 'https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Lengje': 'https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Lemonadë': 'https://images.pexels.com/photos/1233319/pexels-photo-1233319.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Boronicë': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
       
       // Hot Drinks
-      'espresso': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'macchiato': 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Bambi': 'https://images.pexels.com/photos/434295/pexels-photo-434295.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'caffe-latte': 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'nescafe': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'turkish coffe': 'https://images.pexels.com/photos/2061611/pexels-photo-2061611.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'double espresso': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'Filter Tea': 'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'çaj rusi': 'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'espresso': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'macchiato': 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Bambi': 'https://images.pexels.com/photos/434295/pexels-photo-434295.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'caffe-latte': 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'nescafe': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'turkish coffe': 'https://images.pexels.com/photos/2061611/pexels-photo-2061611.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'double espresso': 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'Filter Tea': 'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
+      'çaj rusi': 'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop',
       
       // Breakfast
       'supe-pule': 'https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -124,20 +124,22 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, language, isDarkMode 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className={`rounded-2xl shadow-xl border overflow-hidden hover:shadow-2xl transition-all duration-500 group cursor-pointer backdrop-blur-sm ${
+      transition={{ duration: 0.2 }}
+      className={`rounded-2xl shadow-lg border overflow-hidden hover:shadow-xl transition-shadow duration-200 group cursor-pointer backdrop-blur-sm ${
         isDarkMode 
           ? 'bg-gray-800/90 border-gray-700 hover:border-brand-red/40' 
           : 'bg-white border-gray-100 hover:border-brand-red/20'
       }`}
-      whileHover={{ y: -8, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ y: -2, scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img 
           src={item.imageUrl || getDefaultImage(item.id)} 
           alt={item.name[language]}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
